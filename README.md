@@ -17,6 +17,8 @@ Probably do it in node since it seems easiest. Consider converting to `bin`` whe
 ## TODO
 
 -[ ] Properly escape config paths so there can be multiplatform compatibility and spaces in the directory names
+-[ ] This really needs to use async/parallel processing.
+-[ ] Currently breaks on paths with spaces (lol)
 
 ## Sloppy notes
 
