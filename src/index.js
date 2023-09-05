@@ -1,17 +1,17 @@
 #!/bin env node
 
 // Check for ffmpeg
-  // which ffmpeg
-  // throw error if not present
+  // which ffmpeg throw error if not present
 
-// Target dir, source dir, filetype whitelist/blacklist, and which filetype to convert to should be configurable
+// Target dir, source dir, filetype whitelist/blacklist, and which filetype to
+// convert to should be configurable
 
 import shell from 'shelljs';
 import jsonfile from 'jsonfile';
 import * as Converter from './Converter/converter.js';
 
-// Read config file
-// @throws If an error is encountered reading or parsing the file
+// Read config file @throws If an error is encountered reading or parsing the
+// file
 const configFile = './config.json'
 const config = jsonfile.readFileSync(configFile);
 
