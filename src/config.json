@@ -11,16 +11,16 @@
       "pcm",
       "mp3"
     ],
-    "path": "/Users/patricks/Batch\\ Convert\\ Audio/test_input"
+    "path": "/Users/patricks/Batch_Convert_Audio/test_input/"
   },
   "output": {
     "output_filetypes": [
       "mp3"
     ],
-    "path": "/Users/patricks/Batch\\ Convert\\ Audio/output"
+    "path": "/Users/patricks/Batch_Convert_Audio/output/"
   },
   "temp": {
-    "path": "/Users/patricks/Batch\\ Convert\\ Audio/tmp"
+    "path": "/Users/patricks/Batch_Convert_Audio/tmp/"
   },
   "options": {}
 }

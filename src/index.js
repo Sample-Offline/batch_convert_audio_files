@@ -8,12 +8,11 @@
 
 import shell from 'shelljs';
 import jsonfile from 'jsonfile';
-import * as converter from './Converter/converter.js';
-
-const configFile = './config.json'
+import * as Converter from './Converter/converter.js';
 
 // Read config file
 // @throws If an error is encountered reading or parsing the file
+const configFile = './config.json'
 const config = jsonfile.readFileSync(configFile);
 
 console.log(config)
@@ -21,25 +20,11 @@ console.log(config)
 
 function createOutputDirectory() {
   // Check existence of desired directories
+  shell.mkdir('-p', config.input.path);
+  shell.mkdir('-p', config.output.path);
   shell.mkdir('-p', config.temp.path);
 }
 createOutputDirectory();
 
-converter.normalize();
-
-// Cleanup
-// shell.exec.rm('-rf', config.temp.path);
-
-// Check for ffmpeg
-// if (!shell.which('ffmpeg')) {
-//   shell.echo('Sorry, this script requires ffmpeg');
-//   shell.exit(1);
-// }
-
-// shell.echo(shell.exec('ffmpeg -version'));
-
-// Copy files to release dir
-// shell.rm('-rf', 'out/Release');
-// shell.cp('-R', 'stuff/', 'out/Release');
-
-
+Converter.normalize(config.input.path);
+Converter.convertFiletype(config.input.path, config.output.path, 'wav', 'mp3');
