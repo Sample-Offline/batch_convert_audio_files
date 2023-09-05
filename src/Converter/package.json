@@ -1,0 +1,12 @@
+{
+  "name": "converter",
+  "version": "1.0.0",
+  "description": "Just another wrapper around ffmpeg",
+  "main": "converter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC"
+}

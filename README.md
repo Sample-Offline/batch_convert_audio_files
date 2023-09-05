@@ -13,3 +13,10 @@ Wrap ffmpeg functionality for conversion and normalization that takes all files 
 a target directory. All conversions should be written to a log. The original file should not be mutated.
 
 Probably do it in node since it seems easiest. Consider converting to `bin`` whenever.
+
+
+// modules needed
+  // shelljs - check for ffmpeg
+  // chalk - output color
+  // log - for logging
+  // log-symbols for styling log output

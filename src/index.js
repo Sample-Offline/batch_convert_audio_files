@@ -6,21 +6,11 @@
 
 // Target dir, source dir, filetype whitelist/blacklist, and which filetype to convert to should be configurable
 
-
-
-// modules needed
-  // shelljs - check for ffmpeg
-  // chalk - output color
-  // log - for logging
-  // log-symbols for styling log output
-
-const fs = require("fs");
-const shell = require('shelljs');
-const jsonfile = require('jsonfile')
-const configFile = './config.json'
-
-// const converter = require('./converter.js');
+import shell from 'shelljs';
+import jsonfile from 'jsonfile';
 import * as converter from './Converter/converter.js';
+
+const configFile = './config.json'
 
 // Read config file
 // @throws If an error is encountered reading or parsing the file
