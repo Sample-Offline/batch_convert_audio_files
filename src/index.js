@@ -7,10 +7,7 @@ import * as Converter from './Converter/converter.js';
 // Read config file @throws If an error is encountered reading or parsing the
 // file
 const configFile = './config.json'
-const config = jsonfile.readFileSync(configFile);
-
-console.log(config)
-
+const config = jsonfile.readFileSync('./config.json');
 
 function createOutputDirectory() {
   // Check existence of desired directories
@@ -20,5 +17,4 @@ function createOutputDirectory() {
 }
 createOutputDirectory();
 
-Converter.normalize(config.input.path);
 Converter.convertFiletype(config.input.path, config.output.path, 'wav', 'mp3');
