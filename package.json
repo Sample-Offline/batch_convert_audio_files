@@ -1,11 +1,18 @@
 {
   "name": "batch_convert_audio",
+  "displayName": "Batch Convert Audio",
   "version": "1.0.0",
   "description": "The goal is to have a few utilities that batch process audio files for normalization.",
   "main": "index.js",
-  "repository": "git@github.com:patschreiber/batch_convert_audio_files.git",
+  "directories": {
+    "doc": "./docs",
+    "lib": "./src"
+  },
   "author": "Patrick Schreiber <2431707+patschreiber@users.noreply.github.com>",
   "license": "MIT",
+  "scripts": {
+    "upgrade-all-dependencies": "yarn upgrade-interactive --latest"
+  },
   "dependencies": {
     "chalk": "^5.3.0",
     "commander": "^11.0.0",
@@ -13,5 +20,27 @@
     "log-symbols": "^5.1.0",
     "shelljs": "^0.8.5"
   },
-  "type": "module"
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:patschreiber/batch_convert_audio_files.git"
+  },
+  "bugs": {
+    "url": "https://github.com/patschreiber/batch_convert_audio_files/issues",
+    "email": "2431707+patschreiber@users.noreply.github.com"
+  },
+  "contributors": [
+    "Patrick Schreiber <2431707+patschreiber@users.noreply.github.com>"
+  ],
+  "maintainers": [
+    "Patrick Schreiber <2431707+patschreiber@users.noreply.github.com>"
+  ],
+  "keywords": [
+    "audio",
+    "dsp",
+    "audio-conversion",
+    "ffmpeg",
+    "music",
+    "conversion"
+  ]
 }
