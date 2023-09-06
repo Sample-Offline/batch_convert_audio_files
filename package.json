@@ -6,11 +6,14 @@
   "main": "index.js",
   "directories": {
     "doc": "./docs",
-    "lib": "./src"
+    "lib": "./src",
+    "test": "./__tests__"
   },
   "author": "Patrick Schreiber <2431707+patschreiber@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
+    "test": "jest",
+    "test-coverage": "jest --coverage",
     "upgrade-all-dependencies": "yarn upgrade-interactive --latest"
   },
   "dependencies": {
@@ -42,5 +45,8 @@
     "ffmpeg",
     "music",
     "conversion"
-  ]
+  ],
+  "devDependencies": {
+    "jest": "^29.6.4"
+  }
 }
