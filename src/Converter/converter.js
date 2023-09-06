@@ -1,9 +1,5 @@
 import shell from 'shelljs';
 
-export function normalize(input_path) {
-  console.log("TODO");
-}
-
 /**
  * Converts an audio file from one filetype to another using ffmpeg, while
  * preserving the metadata. TODO: ps - Make this use the plugin pattern maybe to
