@@ -1,11 +1,5 @@
 #!/bin env node
 
-// Check for ffmpeg
-  // which ffmpeg throw error if not present
-
-// Target dir, source dir, filetype whitelist/blacklist, and which filetype to
-// convert to should be configurable
-
 import shell from 'shelljs';
 import jsonfile from 'jsonfile';
 import * as Converter from './Converter/converter.js';
