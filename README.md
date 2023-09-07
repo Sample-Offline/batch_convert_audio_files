@@ -14,31 +14,16 @@ a target directory. All conversions should be written to a log. The original fil
 
 Probably do it in node since it seems easiest. Consider converting to `bin`` whenever.
 
+## Appendix
+
+### 1. Mime Types
+
+1. `audio/mpeg` = `mp3`
+
 ## TODO
 
 -[ ] Properly escape config paths so there can be multiplatform compatibility and spaces in the directory names
 -[ ] This really needs to use async/parallel processing.
 -[ ] Currently breaks on paths with spaces (lol)
-
-## Sloppy notes
-
-// modules needed
-  // shelljs - check for ffmpeg
-  // chalk - output color
-  // log - for logging
-  // log-symbols for styling log output
-
-// Cleanup
-// shell.exec.rm('-rf', config.temp.path);
-
-// Check for ffmpeg
-// if (!shell.which('ffmpeg')) {
-//   shell.echo('Sorry, this script requires ffmpeg');
-//   shell.exit(1);
-// }
-
-// shell.echo(shell.exec('ffmpeg -version'));
-
-// Copy files to release dir
-// shell.rm('-rf', 'out/Release');
-// shell.cp('-R', 'stuff/', 'out/Release');
+-[ ] Input path should be able to be overridden with a cli arg/flag
+-[ ] Create discrete manifest "class"

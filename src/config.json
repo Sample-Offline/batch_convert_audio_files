@@ -1,26 +1,23 @@
 {
   "input": {
-    "filetype_whitelist": [
-      "flac",
-      "wav",
-      "flac",
-      "aac",
-      "mp4"
-    ],
-    "blacklist": [
-      "pcm",
-      "mp3"
-    ],
-    "path": "/Users/patricks/Batch_Convert_Audio/test_input/"
+    "filetypes": {
+      "ignored": [
+        "audio/pcm",
+        "audio/mpeg"
+      ]
+    },
+    "path": "/Users/patricks/Batch Convert Audio/test_input/"
   },
   "output": {
-    "output_filetypes": [
-      "mp3"
+    "filetypes": [
+      "audio/mpeg"
     ],
-    "path": "/Users/patricks/Batch_Convert_Audio/output/"
+    "path": "/Users/patricks/Batch Convert Audio/output/"
   },
   "temp": {
-    "path": "/Users/patricks/Batch_Convert_Audio/tmp/"
+    "path": "/Users/patricks/Batch Convert Audio/tmp/"
   },
-  "options": {}
+  "log": {
+    "path": "/Users/patricks/Batch Convert Audio/log/"
+  }
 }
