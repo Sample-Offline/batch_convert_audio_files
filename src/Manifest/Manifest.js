@@ -50,8 +50,10 @@ export const generateManifestRow = (file, config) => {
   }
 
   // The row to append to the manifest.
-  // TODO: Serialize this so its an object per row. The mime type will be hard to parse if it's not keyed.
-  row = path.resolve(file) + ' ' + file_mimetype + '\n';
+  row = path.resolve(file) + '\n';
+
+  // Optionally add the Mimetype to the manifest
+  // row = row + ' ' + file_mimetype + '\n'; // TODO:
 
   return row;
 }
