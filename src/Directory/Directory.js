@@ -7,14 +7,26 @@ import shell from 'shelljs';
  * Creates specified directories given the list of paths.
  *
  * @param {Map} paths An iterable Map of where to create the folders.
+ *
+ * @return {void}
  */
 export function createDirectories(paths) {
 
   paths.forEach((p) => {
-    console.log(path.resolve(p));
-    // -p flag preserves dirs if they already exist.
-    shell.mkdir('-p', path.resolve(p));
+    createDirectory(path.resolve(p));
   });
+}
+
+/**
+ * Creates a directory at a location on the filesystem.
+ *
+ * @param {string} directoryPath
+ *
+ * @return {void}
+ */
+export const createDirectory = (directoryPath) => {
+  // -p flag preserves dirs if they already exist.
+  shell.mkdir('-p', directoryPath);
 }
 
 /**
@@ -22,27 +34,49 @@ export function createDirectories(paths) {
  * `config.input.ignored` list.
  *
  * @param {Map} config The Mapped config kv's.
+ *
+ * @return {void}
  */
 export const generateManifest = (config) => {
   // TODO: Check if manifest already-extsts and is not completed
+  const manifestPath = config.get('logPath') + config.get('manifestFilename');
 
   shell.ls(config.get('sourcePath')).forEach((file) => {
-    let file_mimetype = mimetypes.lookup(file);
+    let manifestRow = generateManifestRow(file, config);
 
-    // Don't add files with an ignored mimetype
-    if (config.get('ignoredFiletypes').includes(file_mimetype)) {
-      console.info(`Omitting ${file} from manifest because its mimetype is in the config.input.filetypes.ignored list. Mime-type: ${file_mimetype}`); // TODO: Add this to the log file.
-    } else {
-      // The row to append to the manifest.
-      // TODO: Serialize this so its an object per row. The mime type will be hard to parse if it's not keyed.
-      let manifestRow = path.resolve(file) + ' ' + file_mimetype + '\n';
-
-      // Add the row to the manifest. TODO: manifest.log is hardcoded.
+    // Add the row to the manifest only if it's valid.
+    if (manifestRow !== '') {
       fs.appendFileSync(
-        config.get('outputPath') + 'manifest.log',
+        manifestPath,
         manifestRow,
-        'utf8'
+        config.get('manifestEncoding')
       );
     }
   });
+}
+
+/**
+ *
+ * @param {string} file The file path to use for the manifest row.
+ * @param {array} config The config params from config.json
+ *
+ * @return {string} The manifest row to be appended, or an empty string if the
+ * file shouldn't be added to the manifest
+ */
+export const generateManifestRow = (file, config) => {
+  let row = '';
+  let file_mimetype = mimetypes.lookup(file);
+
+  // If the file's mime-type is in the ignored list, return
+  if (config.get('ignoredFiletypes').includes(file_mimetype)) {
+    console.info(`Omitting ${file} from manifest because its mimetype is in the config.input.filetypes.ignored list. Mime-type: ${file_mimetype}`); // TODO: Add this to the log file.
+
+    return '';
+  }
+
+  // The row to append to the manifest.
+  // TODO: Serialize this so its an object per row. The mime type will be hard to parse if it's not keyed.
+  row = path.resolve(file) + ' ' + file_mimetype + '\n';
+
+  return row;
 }

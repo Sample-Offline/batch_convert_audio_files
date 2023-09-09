@@ -6,7 +6,7 @@ import * as Directory from '../Directory/Directory.js'
  *
  * @param {object} config The config params from config.json
  */
-export function normalizeFolder(config) {
+export const normalizeFolder = (config) => {
   const configPaths = new Map([
     ["sourcePath", config.input.path],
     ["outputPath", config.output.path],
@@ -14,16 +14,29 @@ export function normalizeFolder(config) {
     ["tmpPath", config.temp.path],
   ]);
 
-  const configIgnoredFiletypes = new Map([
-    ["ignoredFiletypes", config.input.filetypes.ignored],
-  ]);
-
   // Create requisite dirs if they don't already exist.
   Directory.createDirectories(configPaths);
 
+  const manifestConfig = new Map([
+    ["ignoredFiletypes", config.input.filetypes.ignored],
+    ["sourcePath", config.input.path],
+    ["logPath", config.log.path],
+    ["manifestFilename", config.log.manifest.filename],
+    ["manifestEncoding", config.log.manifest.encoding],
+  ]);
+
   // Glob the maps together.
-  Directory.generateManifest(new Map([...configPaths, ...configIgnoredFiletypes]));
+  Directory.generateManifest(manifestConfig);
 }
 
-export function normalizeFile() { }
+export const normalizeFromManifest = (manifestFile) => {
+  let queue = [];
+
+  normalizeFile(file);
+}
+
+
+export const normalizeFile = (file) => {
+
+}
 

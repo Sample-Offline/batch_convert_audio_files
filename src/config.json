@@ -18,6 +18,10 @@
     "path": "/Users/patricks/Batch Convert Audio/tmp/"
   },
   "log": {
+    "manifest": {
+      "filename": "manifest.log",
+      "encoding": "utf8"
+    },
     "path": "/Users/patricks/Batch Convert Audio/log/"
   }
 }
