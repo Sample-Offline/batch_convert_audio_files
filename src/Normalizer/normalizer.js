@@ -1,4 +1,5 @@
 import * as Directory from '../Directory/Directory.js'
+import * as Manifest from '../Manifest/Manifest.js'
 
 /**
  * Creates a manifest for all files in a folder, and then normalizes each file
@@ -26,7 +27,7 @@ export const normalizeFolder = (config) => {
   ]);
 
   // Glob the maps together.
-  Directory.generateManifest(manifestConfig);
+  Manifest.generateManifest(manifestConfig);
 }
 
 export const normalizeFromManifest = (manifestFile) => {
