@@ -30,14 +30,8 @@ export const normalizeFolder = (config) => {
   Manifest.generateManifest(manifestConfig);
 }
 
-export const normalizeFromManifest = (manifestFile) => {
-  let queue = [];
-
-  normalizeFile(file);
-}
+export const normalizeFromManifest = (manifestFile) => { }
 
 
-export const normalizeFile = (file) => {
-
-}
+export const normalizeFile = (file) => { }
 
