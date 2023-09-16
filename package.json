@@ -1,6 +1,6 @@
 {
-  "name": "batch_convert_audio",
-  "displayName": "Sup Batch",
+  "name": "audio_en_masse",
+  "displayName": "Audio En Masse",
   "version": "1.0.0",
   "description": "The goal is to have a few utilities that batch process audio files for normalization.",
   "main": "index.js",
@@ -11,6 +11,9 @@
   "author": "Patrick Schreiber <2431707+patschreiber@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
+    "build": "./build/build-prod.sh",
+    "build-dev": "./build/build-dev.sh",
+    "upgradable": "yarn outdated && yarn upgrade-interactive",
     "upgrade-all-dependencies": "yarn upgrade-interactive --latest",
     "upgrade-all": "yarn upgrade-all-dependencies"
   },
@@ -44,5 +47,9 @@
     "ffmpeg",
     "music",
     "conversion"
-  ]
+  ],
+  "devDependencies": {
+    "eslint": "^8.49.0",
+    "yarn": "^1.22.19"
+  }
 }
